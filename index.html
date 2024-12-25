@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic GPA Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="nebula"></div>
+  </div>
+  <div class="container">
+    <h1>🚀 GPA Calculator</h1>
+    <p class="description">Calculate your GPA in style!</p>
+    <div id="course-container">
+      <div class="course">
+        <input type="text" placeholder="Course Name" class="course-name">
+        <input type="number" placeholder="Credits" class="course-credits" min="1">
+        <select class="course-grade">
+          <option value="10">A+</option>
+          <option value="9">A</option>
+          <option value="8">B+</option>
+          <option value="7">B</option>
+          <option value="6">C+</option>
+          <option value="5">C</option>
+          <option value="4">D</option>
+          <option value="0">F</option>
+        </select>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="add-course" class="btn">Add Course +</button>
+      <button id="remove-course" class="btn btn-danger">Remove Course ✖</button>
+      <button id="calculate-gpa" class="btn btn-calculate">Calculate GPA</button>
+    </div>
+    <h2 id="gpa-result">GPA: </h2>
+  </div>
+  <footer>
+    <p>Designed with 🌌 vibes by RM</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
