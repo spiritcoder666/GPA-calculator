@@ -1,27 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Futuristic GPA Calculator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="background">
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="nebula"></div>
-  </div>
-  <div class="container">
-    <h1 class="gradient-text"> GPA Calculator</h1>
-    <textarea id="uims-input" placeholder="Paste your UIMS table data here"></textarea>
-    <button class="btn btn-parse" onclick="parseUIMS()">Parse Data</button>
-    <button class="btn btn-add" onclick="addCourseManually()">Add Course Manually</button>
-    <div id="course-container"></div>
-    <button class="btn btn-calculate" onclick="calculateGPA()">Calculate GPA</button>
-    <h2>Your GPA: <span id="gpa-result">0.00</span></h2>
-  </div>
-  <footer>Made with ❤️ for the YOU</footer>
-  <script src="script.js"></script>
-</body>
-</html>
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: #000;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+h1.gradient-text {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Fallback for modern browsers */
+}
+
+textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+textarea:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+.btn-parse {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.btn-add {
+  background: linear-gradient(135deg, #34eb83, #2ade7d);
+}
+
+.btn-calculate {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
+#gpa-result {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff7e5f;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Background Effects */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.stars, .twinkling, .nebula {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.stars {
+  background: url('https://i.imgur.com/3y10yOj.png') repeat;
+  animation: move-stars 50s linear infinite;
+}
+
+.twinkling {
+  background: url('https://i.imgur.com/0eU6gxG.png') repeat;
+  animation: move-twinkling 100s linear infinite;
+}
+
+.nebula {
+  background: url('https://i.imgur.com/MUIbQ5y.png') no-repeat center;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+@keyframes move-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+@keyframes move-twinkling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
